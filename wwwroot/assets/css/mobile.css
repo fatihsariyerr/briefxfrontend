@@ -1,0 +1,7 @@
+@media (max-width: 960px) { /* 768px'den daha küçük ekranlar için */
+  .layout-navbar .navbar-nav-right {
+    flex-basis: 100%;
+    display: flex;
+    margin-top: -55px;
+    margin-left: 40px;
+  }

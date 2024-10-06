@@ -1,0 +1,199 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <None Remove="dist\" />
+    <None Remove="fonts\" />
+    <None Remove="js\" />
+    <None Remove="libs\" />
+    <None Remove="scss\" />
+    <None Remove="tasks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dist\" />
+    <Folder Include="fonts\" />
+    <Folder Include="js\" />
+    <Folder Include="libs\" />
+    <Folder Include="scss\" />
+    <Folder Include="tasks\" />
+    <Folder Include="wwwroot\assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\css\demo.css" />
+    <Content Remove="wwwroot\assets\img\avatars\1.png" />
+    <Content Remove="wwwroot\assets\img\avatars\5.png" />
+    <Content Remove="wwwroot\assets\img\avatars\6.png" />
+    <Content Remove="wwwroot\assets\img\avatars\7.png" />
+    <Content Remove="wwwroot\assets\img\elements\1.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\11.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\12.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\13.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\17.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\18.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\19.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\2.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\20.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\3.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\4.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\5.jpg" />
+    <Content Remove="wwwroot\assets\img\elements\7.jpg" />
+    <Content Remove="wwwroot\assets\img\favicon\favicon.ico" />
+    <Content Remove="wwwroot\assets\img\icons\brands\asana.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\behance.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\dribbble.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\facebook.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\github.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\google.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\instagram.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\mailchimp.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\slack.png" />
+    <Content Remove="wwwroot\assets\img\icons\brands\twitter.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\cc-primary.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\cc-warning.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\chart-success.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\chart.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\paypal.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\wallet-info.png" />
+    <Content Remove="wwwroot\assets\img\icons\unicons\wallet.png" />
+    <Content Remove="wwwroot\assets\img\illustrations\girl-doing-yoga-light.png" />
+    <Content Remove="wwwroot\assets\img\illustrations\man-with-laptop.png" />
+    <Content Remove="wwwroot\assets\img\illustrations\page-misc-error-light.png" />
+    <Content Remove="wwwroot\assets\img\layouts\layout-container-light.png" />
+    <Content Remove="wwwroot\assets\img\layouts\layout-fluid-light.png" />
+    <Content Remove="wwwroot\assets\img\layouts\layout-without-menu-light.png" />
+    <Content Remove="wwwroot\assets\img\layouts\layout-without-navbar-light.png" />
+    <Content Remove="wwwroot\assets\js\config.js" />
+    <Content Remove="wwwroot\assets\js\dashboards-analytics.js" />
+    <Content Remove="wwwroot\assets\js\extended-ui-perfect-scrollbar.js" />
+    <Content Remove="wwwroot\assets\js\form-basic-inputs.js" />
+    <Content Remove="wwwroot\assets\js\main.js" />
+    <Content Remove="wwwroot\assets\js\pages-account-settings-account.js" />
+    <Content Remove="wwwroot\assets\js\ui-modals.js" />
+    <Content Remove="wwwroot\assets\js\ui-popover.js" />
+    <Content Remove="wwwroot\assets\js\ui-toasts.js" />
+    <Content Remove="wwwroot\assets\vendor\css\core.css" />
+    <Content Remove="wwwroot\assets\vendor\css\pages\page-account-settings.css" />
+    <Content Remove="wwwroot\assets\vendor\css\pages\page-auth.css" />
+    <Content Remove="wwwroot\assets\vendor\css\pages\page-icons.css" />
+    <Content Remove="wwwroot\assets\vendor\css\pages\page-misc.css" />
+    <Content Remove="wwwroot\assets\vendor\css\theme-default.css" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <Content Remove="wwwroot\assets\vendor\fonts\boxicons.css" />
+    <Content Remove="wwwroot\assets\vendor\js\bootstrap.js" />
+    <Content Remove="wwwroot\assets\vendor\js\helpers.js" />
+    <Content Remove="wwwroot\assets\vendor\js\menu.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Remove="wwwroot\assets\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\highlight\highlight-github.css" />
+    <Content Remove="wwwroot\assets\vendor\libs\highlight\highlight.css" />
+    <Content Remove="wwwroot\assets\vendor\libs\highlight\highlight.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\jquery\jquery.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\masonry\masonry.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Remove="wwwroot\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Remove="wwwroot\assets\vendor\libs\popper\popper.js" />
+    <Content Remove="wwwroot\assets\" />
+    <Content Remove="wwwroot\js\bootstrap.js" />
+    <Content Remove="wwwroot\js\helpers.js" />
+    <Content Remove="wwwroot\js\menu.js" />
+    <Content Remove="wwwroot\assets\css\demo %28kopyala%29.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\assets\css\demo.css" />
+    <None Include="wwwroot\assets\img\avatars\1.png" />
+    <None Include="wwwroot\assets\img\avatars\5.png" />
+    <None Include="wwwroot\assets\img\avatars\6.png" />
+    <None Include="wwwroot\assets\img\avatars\7.png" />
+    <None Include="wwwroot\assets\img\elements\1.jpg" />
+    <None Include="wwwroot\assets\img\elements\11.jpg" />
+    <None Include="wwwroot\assets\img\elements\12.jpg" />
+    <None Include="wwwroot\assets\img\elements\13.jpg" />
+    <None Include="wwwroot\assets\img\elements\17.jpg" />
+    <None Include="wwwroot\assets\img\elements\18.jpg" />
+    <None Include="wwwroot\assets\img\elements\19.jpg" />
+    <None Include="wwwroot\assets\img\elements\2.jpg" />
+    <None Include="wwwroot\assets\img\elements\20.jpg" />
+    <None Include="wwwroot\assets\img\elements\3.jpg" />
+    <None Include="wwwroot\assets\img\elements\4.jpg" />
+    <None Include="wwwroot\assets\img\elements\5.jpg" />
+    <None Include="wwwroot\assets\img\elements\7.jpg" />
+    <None Include="wwwroot\assets\img\favicon\favicon.ico" />
+    <None Include="wwwroot\assets\img\icons\brands\asana.png" />
+    <None Include="wwwroot\assets\img\icons\brands\behance.png" />
+    <None Include="wwwroot\assets\img\icons\brands\dribbble.png" />
+    <None Include="wwwroot\assets\img\icons\brands\facebook.png" />
+    <None Include="wwwroot\assets\img\icons\brands\github.png" />
+    <None Include="wwwroot\assets\img\icons\brands\google.png" />
+    <None Include="wwwroot\assets\img\icons\brands\instagram.png" />
+    <None Include="wwwroot\assets\img\icons\brands\mailchimp.png" />
+    <None Include="wwwroot\assets\img\icons\brands\slack.png" />
+    <None Include="wwwroot\assets\img\icons\brands\twitter.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\cc-primary.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\cc-warning.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\chart-success.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\chart.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\paypal.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\wallet-info.png" />
+    <None Include="wwwroot\assets\img\icons\unicons\wallet.png" />
+    <None Include="wwwroot\assets\img\illustrations\girl-doing-yoga-light.png" />
+    <None Include="wwwroot\assets\img\illustrations\man-with-laptop.png" />
+    <None Include="wwwroot\assets\img\illustrations\page-misc-error-light.png" />
+    <None Include="wwwroot\assets\img\layouts\layout-container-light.png" />
+    <None Include="wwwroot\assets\img\layouts\layout-fluid-light.png" />
+    <None Include="wwwroot\assets\img\layouts\layout-without-menu-light.png" />
+    <None Include="wwwroot\assets\img\layouts\layout-without-navbar-light.png" />
+    <None Include="wwwroot\assets\js\config.js" />
+    <None Include="wwwroot\assets\js\dashboards-analytics.js" />
+    <None Include="wwwroot\assets\js\extended-ui-perfect-scrollbar.js" />
+    <None Include="wwwroot\assets\js\form-basic-inputs.js" />
+    <None Include="wwwroot\assets\js\main.js" />
+    <None Include="wwwroot\assets\js\pages-account-settings-account.js" />
+    <None Include="wwwroot\assets\js\ui-modals.js" />
+    <None Include="wwwroot\assets\js\ui-popover.js" />
+    <None Include="wwwroot\assets\js\ui-toasts.js" />
+    <None Include="wwwroot\assets\vendor\css\core.css" />
+    <None Include="wwwroot\assets\vendor\css\pages\page-account-settings.css" />
+    <None Include="wwwroot\assets\vendor\css\pages\page-auth.css" />
+    <None Include="wwwroot\assets\vendor\css\pages\page-icons.css" />
+    <None Include="wwwroot\assets\vendor\css\pages\page-misc.css" />
+    <None Include="wwwroot\assets\vendor\css\theme-default.css" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons\boxicons.eot" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons\boxicons.svg" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons\boxicons.woff" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <None Include="wwwroot\assets\vendor\fonts\boxicons.css" />
+    <None Include="wwwroot\assets\vendor\js\bootstrap.js" />
+    <None Include="wwwroot\assets\vendor\js\helpers.js" />
+    <None Include="wwwroot\assets\vendor\js\menu.js" />
+    <None Include="wwwroot\assets\vendor\libs\apex-charts\apex-charts.css" />
+    <None Include="wwwroot\assets\vendor\libs\apex-charts\apexcharts.js" />
+    <None Include="wwwroot\assets\vendor\libs\highlight\highlight-github.css" />
+    <None Include="wwwroot\assets\vendor\libs\highlight\highlight.css" />
+    <None Include="wwwroot\assets\vendor\libs\highlight\highlight.js" />
+    <None Include="wwwroot\assets\vendor\libs\jquery\jquery.js" />
+    <None Include="wwwroot\assets\vendor\libs\masonry\masonry.js" />
+    <None Include="wwwroot\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <None Include="wwwroot\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <None Include="wwwroot\assets\vendor\libs\popper\popper.js" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\helpers.js" />
+    <None Include="wwwroot\js\menu.js" />
+    <None Include="wwwroot\assets\css\mobile.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.67" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
+  </ItemGroup>
+</Project>
