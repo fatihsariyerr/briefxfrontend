@@ -36,7 +36,7 @@ namespace pulseui.Pages
 
     public IActionResult OnPostChangeLocation(string location)
     {
-      IndexModel.Location = location;
+      Location = location;
 
       return RedirectToPage("/Index");
 
