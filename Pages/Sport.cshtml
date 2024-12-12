@@ -155,13 +155,14 @@
                                        aria-label="Search News ..."
                                        style="flex-grow: 1;" />
                                 <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
-                                <form method="post" >
-
-                                    <button asp-page-handler="ChangeLocation" type="submit" name="location" value="TR" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
+                                <form method="post" asp-page-handler="ChangeLocation">
+                                    <input type="hidden" name="location" value="TR" />
+                                    <button type="submit" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
                                         <img src="https://www.bundle.app/_nuxt/img/flag_tr.c8a2d46.png" alt="TR" style="width: 20px; height: auto; margin-right: 8px;" />
                                         TR
                                     </button>
                                 </form>
+
 
 
 
