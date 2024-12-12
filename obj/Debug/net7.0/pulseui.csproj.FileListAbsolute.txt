@@ -39,3 +39,5 @@
 /Users/sariyer/Projects/pulseui/pulseui/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/sariyer/Projects/pulseui/pulseui/obj/Debug/net7.0/pulseui.csproj.CopyComplete
 /Users/sariyer/Projects/pulseui/pulseui/bin/Debug/net7.0/HtmlAgilityPack.dll
+/Users/sariyer/Projects/pulseui/pulseui/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/sariyer/Projects/pulseui/pulseui/bin/Debug/net7.0/System.Security.Permissions.dll

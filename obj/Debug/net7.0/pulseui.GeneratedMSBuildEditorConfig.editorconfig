@@ -28,8 +28,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvR2FtaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/GamingInternational.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvR2FtaW5nSW50ZXJuYXRpb25hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Life.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlmZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Privacy.cshtml]
@@ -44,8 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3Bvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Sport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3BvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Technology.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVjaG5vbG9neS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Testler.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVzdGxlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Tests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Yasam.cshtml]

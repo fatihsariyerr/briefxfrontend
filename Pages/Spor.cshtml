@@ -12,7 +12,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="/Index" class="app-brand-link">
+                   <a href="/" class="app-brand-link" style="text-decoration: none;">
                         <img style="width:50px;height:50px;" src="~/assets/img/briefxlogo.png" alt="BriefX">
                         <span class="app-brand-text demo menu-text fw-bold ms-2">BriefX</span>
                     </a>
@@ -34,7 +34,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="/Index" class="menu-link" style="text-decoration: none;">
+                                <a href="/" class="menu-link" style="text-decoration: none;">
                                     <div class="text-truncate" data-i18n="Analytics">Gündem</div>
                                 </a>
                             </li>
@@ -79,26 +79,26 @@
                     </li>
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/dollar-coin-outline-icon.png" alt="Dollar icon">
-                            <span style="color:green;margin-left: 15px;">@IndexModel.UsdRate ₺</span>
+                            <img style="width: 25px; height: 25px;" src="/assets/img/dollar.png" alt="Dollar icon">
+                            <span style="margin-left: 15px;">@IndexModel.UsdRate ₺</span>
                         </div>
                     </li>
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/euro-coin-outline-icon.png" alt="Euro icon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.EuroRate ₺</span>
+                            <img style="width: 25px; height: 25px;" src="/assets/img/euro.png" alt="Euro icon">
+                            <span style=" margin-left: 15px;">@IndexModel.EuroRate ₺</span>
                         </div>
                     </li>
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gold-1410594-1193569.png" alt="Altın İcon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.GramAltinRate ₺</span>
+                            <img style="width: 25px; height: 25px;" src="/assets/img/gold-bars.png" alt="Altın İcon">
+                            <span style=" margin-left: 15px;">@IndexModel.GramAltinRate ₺</span>
                         </div>
                     </li>
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/bitcoin-money-icon.png" alt="Altın İcon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.BtcRate</span>
+                            <img style="width: 25px; height: 25px;" src="/assets/img/bitcoin.png" alt="Altın İcon">
+                            <span style=" margin-left: 15px;">@IndexModel.BtcRate $</span>
                         </div>
                     </li>
                     <li class="menu-header small text-uppercase">
@@ -131,7 +131,7 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center w-100">
-                            <div class="nav-item d-flex align-items-center w-100">
+                            <div style="width:85% !important;" class="nav-item d-flex align-items-center w-100">
                                 <i class="bx bx-search bx-md me-2"></i>
                                 <input type="text"
                                        id="searchInput"
@@ -139,7 +139,18 @@
                                        placeholder="Haber Ara ..."
                                        aria-label="Haber Ara ..."
                                        style="flex-grow: 1;" />
-                                <button type="button" id="searchButton" class="btn btn-outline-primary">Ara</button>
+                              <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
+
+
+                                <form method="post" asp-page-handler="ChangeLocation">
+
+                                    <button type="submit" name="location" value="GLOBAL" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
+                                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.png" alt="INTERNATIONAL" style="width: 20px; height: auto; margin-right: 8px;" />
+                                        EU
+                                    </button>
+
+                                </form>
+
                             </div>
                         </div>
                         <!-- /Search -->
@@ -177,7 +188,7 @@
                                             <div class="card h-100">
 
                                                 <a href="@haber.Link" target="_blank">
-                                                    <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli">
+                                                    <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy">
                                                 </a>
                                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
                                                     <span style="color: red; font-weight: bold; padding-left: 12px; padding-top: 10px;">

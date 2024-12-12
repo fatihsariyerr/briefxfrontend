@@ -1,8 +1,16 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "BriefX | Gundem";
-}
+@{ @if (IndexModel.Location == "TR")
+    {
+        ViewData["Title"] = "BriefX | Gundem";
+    }
+    else
+    {
+
+        ViewData["Title"] = "BriefX | News ";
+    }
+
+    }
 
 <body>
     <!-- Layout wrapper -->
@@ -11,7 +19,7 @@
             <!-- Menu -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="/Index" class="app-brand-link">
+                    <a href="/" class="app-brand-link" style="text-decoration: none;">
                         <img style="width:50px;height:50px;" src="~/assets/img/briefxlogo.png" alt="BriefX">
                         <span class="app-brand-text demo menu-text fw-bold ms-2">BriefX</span>
                     </a>
@@ -25,93 +33,205 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
-                    <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                            <div class="text-truncate" data-i18n="Dashboards">Haberler</div>
-                            <span class="badge rounded-pill bg-danger ms-auto">4</span>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item active">
-                                <a href="/Index" class="menu-link" style="text-decoration: none;">
-                                    <div class="text-truncate" data-i18n="Analytics">Gündem</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/Bilim" class="menu-link" style="text-decoration: none;">
-                                    <div class="text-truncate" data-i18n="CRM">Bilim & Teknoloji</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/Yasam" class="menu-link" style="text-decoration: none;">
-                                    <div class="text-truncate" data-i18n="Logistics">Yaşam</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/Spor" class="menu-link" style="text-decoration: none;">
-                                    <div class="text-truncate" data-i18n="Academy">Spor</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Eğlence</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/Testler" class="menu-link" style="text-decoration: none;">
-                            <i class="menu-icon tf-icons bx bx-test-tube" style="text-decoration: none;"></i>
-                            <div class="text-truncate" data-i18n="Boxicons">Testler</div>
-                        </a>
-                    </li>
+                    @if (IndexModel.Location == "TR")
+                    {
+                        <li class="menu-item active open">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-home-smile"></i>
+                                <div class="text-truncate" data-i18n="Dashboards">Haberler</div>
+                                <span class="badge rounded-pill bg-danger ms-auto">4</span>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item active">
+                                    <a href="/" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Analytics">Gündem </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Bilim" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="CRM">Bilim & Teknoloji</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Yasam" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Logistics">Yaşam</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Spor" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Academy">Spor</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Eğlence</span>
+
+                        </li>
+                        <li class="menu-item">
+                            <a href="/Testler" class="menu-link" style="text-decoration: none;">
+                                <i class="menu-icon tf-icons bx bx-test-tube" style="text-decoration: none;"></i>
+                                <div class="text-truncate" data-i18n="Boxicons">Testler</div>
+                            </a>
+                        </li>
 
 
-                    <li class="menu-item">
-                        <a href="/Gaming" class="menu-link" style="text-decoration: none;">
-                            <i class="menu-icon tf-icons bx bx-ghost" style="text-decoration: none;"></i>
-                            <div class="text-truncate" data-i18n="Boxicons">Gaming</div>
-                        </a>
-                    </li>
+                        <li class="menu-item">
+                            <a href="/Gaming" class="menu-link" style="text-decoration: none;">
+                                <i class="menu-icon tf-icons bx bx-ghost" style="text-decoration: none;"></i>
+                                <div class="text-truncate" data-i18n="Boxicons">Gaming</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">DÖVİZ</span>
-                    </li>
-                    <li class="menu-item">
-                        <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/dollar-coin-outline-icon.png" alt="Dollar icon">
-                            <span style="color:green;margin-left: 15px;">@IndexModel.UsdRate ₺</span>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/euro-coin-outline-icon.png" alt="Euro icon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.EuroRate ₺</span>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gold-1410594-1193569.png" alt="Altın İcon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.GramAltinRate ₺</span>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/bitcoin-money-icon.png" alt="Altın İcon">
-                            <span style="color: green; margin-left: 15px;">@IndexModel.BtcRate</span>
-                        </div>
-                    </li>
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">HAVA DURUMU</span>
-                    </li>
-                    <li class="menu-item">
-                        <div style="overflow: hidden; width: 300px; height: auto; transform: scale(0.8); transform-origin: top left;">
-                            <div id="ww_8797b483fccfc" v='1.3' loc='auto' a='{"t":"horizontal","lang":"tr","sl_lpl":1,"ids":["wl3197"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_phw":3,"el_whr":3}'>
-                                Daha fazla hava durumu tahmini: <a href="https://oneweather.org/tr/istanbul/15_days/" id="ww_8797b483fccfc_u" target="_blank">15 günlük hava durumu İstanbul</a>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">DÖVİZ</span>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/dollar.png" alt="Dollar icon">
+                                <span style="margin-left: 15px;">@IndexModel.UsdRate ₺</span>
                             </div>
-                            <script async src="https://app3.weatherwidget.org/js/?id=ww_8797b483fccfc"></script>
-                        </div>
-                    </li>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/euro.png" alt="Euro icon">
+                                <span style=" margin-left: 15px;">@IndexModel.EuroRate ₺</span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/gold-bars.png" alt="Altın İcon">
+                                <span style=" margin-left: 15px;">@IndexModel.GramAltinRate ₺</span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/bitcoin.png" alt="Altın İcon">
+                                <span style=" margin-left: 15px;">@IndexModel.BtcRate $</span>
+                            </div>
+                        </li>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">HAVA DURUMU</span>
+                        </li>
+                        <li class="menu-item">
+                            <div style="overflow: hidden; width: 300px; height: auto; transform: scale(0.8); transform-origin: top left;">
+                                <div id="ww_8797b483fccfc" v='1.3' loc='auto' a='{"t":"horizontal","lang":"tr","sl_lpl":1,"ids":["wl3197"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_phw":3,"el_whr":3}'>
+                                    Daha fazla hava durumu tahmini: <a href="https://oneweather.org/tr/istanbul/15_days/" id="ww_8797b483fccfc_u" target="_blank">15 günlük hava durumu İstanbul</a>
+                                </div>
+                                <script async src="https://app3.weatherwidget.org/js/?id=ww_8797b483fccfc"></script>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="menu-item active open">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-home-smile"></i>
+                                <div class="text-truncate" data-i18n="Dashboards">News</div>
+                                <span class="badge rounded-pill bg-danger ms-auto">4</span>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item active">
+                                    <a href="/" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Analytics">World </div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Technology" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="CRM">Science & Technology</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Life" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Logistics">Life</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Sport" class="menu-link" style="text-decoration: none;">
+                                        <div class="text-truncate" data-i18n="Academy">Sport</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Entertainment</span>
+
+                        </li>
+                        <li class="menu-item">
+                            <a href="/Tests" class="menu-link" style="text-decoration: none;">
+                                <i class="menu-icon tf-icons bx bx-test-tube" style="text-decoration: none;"></i>
+                                <div class="text-truncate" data-i18n="Boxicons">Tests</div>
+                            </a>
+                        </li>
+
+
+                        <li class="menu-item">
+                            <a href="/GamingInternational" class="menu-link" style="text-decoration: none;">
+                                <i class="menu-icon tf-icons bx bx-ghost" style="text-decoration: none;"></i>
+                                <div class="text-truncate" data-i18n="Boxicons">Gaming</div>
+                            </a>
+                        </li>
+
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Currency</span>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                            <img style="width: 25px; height: 25px;" src="/assets/img/dollar.png" alt="Dollar icon"> <span style="margin-left: 15px;">
+                                    @if (Convert.ToDecimal(IndexModel.EuroRate) != 0)
+                                    {
+                                        decimal euroRate = Convert.ToDecimal(IndexModel.EuroRate);
+                                        var euroValue = Convert.ToDecimal(IndexModel.UsdRate) / euroRate;
+                                        @euroValue.ToString("F2").Replace(",",".")
+                                    }
+                                    else
+                                    {
+                                        <span>Invalid rate</span>
+                                    } €
+                                </span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/euro.png" alt="Euro icon">
+                                <span style=" margin-left: 15px;">
+                                    @if (Convert.ToDecimal(IndexModel.UsdRate) != 0)
+                                    {
+                                        decimal euroRate = Convert.ToDecimal(IndexModel.UsdRate);
+                                        var euroValue = Convert.ToDecimal(IndexModel.EuroRate) / euroRate;
+                                        @euroValue.ToString("F2").Replace(",",".")
+                                    }
+                                    else
+                                    {
+                                        <span>Invalid rate</span>
+                                    } $
+                                </span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <div class="menu-link" style="display: flex; align-items: center;">
+                                <img style="width: 25px; height: 25px;" src="/assets/img/bitcoin.png" alt="BTC Icon">
+                                <span style=" margin-left: 15px;">@IndexModel.BtcRate $</span>
+                            </div>
+                        </li>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Weather</span>
+                        </li>
+                        <li class="menu-item">
+                            <div style="overflow: hidden; width: 300px; height: auto; transform: scale(0.8); transform-origin: top left;">
+                                <div id="ww_c2ad18de14f04" v='1.3' loc='auto' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_phw":3,"el_whr":3}'>Weather Data Source: <a href="https://wetterlang.de/wetter_21_tage/" id="ww_c2ad18de14f04_u" target="_blank">Wetter fur 21 tage</a></div>
+                                <script async src="https://app3.weatherwidget.org/js/?id=ww_c2ad18de14f04"></script>
+                            </div>
+                        </li>
+                    }
+
+
                 </ul>
+
+
             </aside>
 
 
@@ -131,15 +251,49 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center w-100">
-                            <div class="nav-item d-flex align-items-center w-100">
+                            <div style="width:85% !important;" class="nav-item d-flex align-items-center w-100">
                                 <i class="bx bx-search bx-md me-2"></i>
-                                <input type="text"
-                                       id="searchInput"
-                                       class="form-control border-0 shadow-none ps-1 ps-sm-2 me-2"
-                                       placeholder="Haber Ara ..."
-                                       aria-label="Haber Ara ..."
-                                       style="flex-grow: 1;" />
-                                <button type="button" id="searchButton" class="btn btn-outline-primary">Ara</button>
+                                @if (IndexModel.Location == "TR")
+                                {
+                                    <input type="text"
+                                           id="searchInput"
+                                           class="form-control border-0 shadow-none ps-1 ps-sm-2 me-2"
+                                           placeholder="Haber Ara ..."
+                                           aria-label="Haber Ara ..."
+                                           style="flex-grow: 1;" />
+                                    <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
+                                    <form method="post" asp-page-handler="ChangeLocation">
+
+                                        <button type="submit" name="location" value="GLOBAL" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
+                                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.png" alt="INTERNATIONAL" style="width: 20px; height: auto; margin-right: 8px;" />
+                                            EU
+                                        </button>
+
+                                    </form>
+                                }
+                                else
+                                {
+                                    <input type="text"
+                                           id="searchInput"
+                                           class="form-control border-0 shadow-none ps-1 ps-sm-2 me-2"
+                                           placeholder="Search News ..."
+                                           aria-label="Search News ..."
+                                           style="flex-grow: 1;" />
+                                    <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
+
+                                    <form method="post" asp-page-handler="ChangeLocation">
+
+                                        <button type="submit" name="location" value="TR" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
+                                            <img src="https://www.bundle.app/_nuxt/img/flag_tr.c8a2d46.png" alt="TR" style="width: 20px; height: auto; margin-right: 8px;" />
+                                            TR
+                                        </button>
+                                    </form>
+
+                                }
+
+
+
+
                             </div>
                         </div>
                         <!-- /Search -->
@@ -171,33 +325,68 @@
                         <div class="row">
                             <div class="col-xxl-8 mb-6 order-0">
                                 <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
-                                    @foreach (var haber in Model.news)
+
+                                    @if (IndexModel.Location == "TR")
                                     {
-                                        <div class="col">
-                                            <div class="card h-100">
+                                        @foreach (var haber in Model.news)
+                                        {
+                                            <div class="col">
+                                                <div class="card h-100">
 
-                                                <a href="@haber.Link" target="_blank">
-                                                    <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli">
-                                                </a>
-                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
-                                                    <span style="color:red;font-weight: bold; padding-left: 12px; padding-top: 10px;">
-                                                        @haber.Publisher
-                                                    </span>
-                                                    <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
-                                                        @haber.PublishedAtFormatted
-                                                    </span>
-                                                </div>
-
-                                                <a href="@haber.Link" target="_blank" style="text-decoration: none; color: inherit;">
-                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
-                                                        <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
-                                                            @haber.Title
-                                                        </h5>
+                                                    <a href="@haber.Link" target="_blank">
+                                                        <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy">
+                                                    </a>
+                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
+                                                        <span style="color:red;font-weight: bold; padding-left: 12px; padding-top: 10px;">
+                                                            @haber.Publisher
+                                                        </span>
+                                                        <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
+                                                            @haber.PublishedAtFormatted
+                                                        </span>
                                                     </div>
-                                                </a>
+
+                                                    <a href="@haber.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
+                                                            <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
+                                                                @haber.Title
+                                                            </h5>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        }
                                     }
+                                    else
+                                    {
+                                        @foreach (var haber in Model.news)
+                                        {
+                                            <div class="col">
+                                                <div class="card h-100">
+
+                                                    <a href="@haber.Link" target="_blank">
+                                                        <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy">
+                                                    </a>
+                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
+                                                        <span style="color:red;font-weight: bold; padding-left: 12px; padding-top: 10px;">
+                                                            @haber.Publisher
+                                                        </span>
+                                                        <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
+                                                            @haber.PublishedAtFormatted
+                                                        </span>
+                                                    </div>
+
+                                                    <a href="@haber.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
+                                                            <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
+                                                                @haber.Title
+                                                            </h5>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
 
                                 </div>
                             </div>
@@ -205,63 +394,128 @@
                             <div class="col-lg-4 col-md-4 order-1">
 
                                 <div class="row">
-                                    <h3 style="padding-top:5px;text-align:left;">Son Dakika</h3>
-                                    <div class="col-lg-12 col-md-12 col-12 mb-12">
-                                        @foreach (var sondakika in Model.sondakikahaberleri)
-                                        {
-                                            <div class="card">
-                                                <div class="d-flex">
-                                                    <div style="width:70%;">
-                                                        <a href="@sondakika.Link" target="_blank" style="text-decoration: none; color: inherit;">
-                                                            <div class="card-body">
+                                    @if (IndexModel.Location == "TR")
+                                    {<h3 style="padding-top:5px;text-align:left;">Son Dakika</h3>}
+                                    else
+                                    {
+                                        <h3 style="padding-top:5px;text-align:left;">Breaking News</h3>
+                                    }
+                                    @if (IndexModel.Location == "TR")
+                                    {<div class="col-lg-12 col-md-12 col-12 mb-12">
+                                            @foreach (var sondakika in Model.sondakikahaberleri)
+                                            {
+                                                <div class="card">
+                                                    <div class="d-flex">
+                                                        <div style="width:70%;">
+                                                            <a href="@sondakika.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                                <div class="card-body">
 
-                                                                <h5 class="card-title">@sondakika.Title</h5>
+                                                                    <h5 class="card-title">@sondakika.Title</h5>
+                                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
+
+                                                                        <span style="color:red;font-weight: bold;  padding-top: 10px;">
+                                                                            @sondakika.Publisher
+                                                                        </span>
+                                                                        <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
+                                                                            @sondakika.PublishedAtFormatted
+                                                                        </span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="@sondakika.Link" target="_blank">
+                                                                <img class="card-img card-img-right" src="@sondakika.ImageUrl" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />}
+                                            <div class="card" style="display:none;">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Reklam Başlığı Reklam Başlığı Reklam Başlığı Reklam Başlığı</h5>
                                                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
 
                                                                     <span style="color:red;font-weight: bold;  padding-top: 10px;">
-                                                                        @sondakika.Publisher
+                                                                        Reklam Veren Firma
                                                                     </span>
-                                                                    <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
-                                                                        @sondakika.PublishedAtFormatted
-                                                                    </span>
+
 
                                                                 </div>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                    <div >
-                                                        <a href="@sondakika.Link" target="_blank">
-                                                            <img class="card-img card-img-right" src="@sondakika.ImageUrl" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
+                                                    <div>
+                                                        <a href="#" target="_blank">
+                                                            <img class="card-img card-img-right" src="/assets/img/briefxlogo.png" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br />}
-                                        <div class="card" style="display:none;">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Reklam Başlığı Reklam Başlığı Reklam Başlığı Reklam Başlığı</h5>
-                                                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-lg-12 col-md-12 col-12 mb-12">
+                                            @foreach (var sondakika in Model.sondakikahaberleri)
+                                            {
+                                                <div class="card">
+                                                    <div class="d-flex">
+                                                        <div style="width:70%;">
+                                                            <a href="@sondakika.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                                <div class="card-body">
 
-                                                                <span style="color:red;font-weight: bold;  padding-top: 10px;">
-                                                                    Reklam Veren Firma
-                                                                </span>
+                                                                    <h5 class="card-title">@sondakika.Title</h5>
+                                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
+
+                                                                        <span style="color:red;font-weight: bold;  padding-top: 10px;">
+                                                                            @sondakika.Publisher
+                                                                        </span>
 
 
-                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
                                                         </div>
-                                                    </a>
+                                                        <div>
+                                                            <a href="@sondakika.Link" target="_blank">
+                                                                <img class="card-img card-img-right" src="@sondakika.ImageUrl" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <a href="#" target="_blank">
-                                                        <img class="card-img card-img-right" src="/assets/img/briefxlogo.png" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
-                                                    </a>
+                                                <br />}
+                                            <div class="card" style="display:none;">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Reklam Başlığı Reklam Başlığı Reklam Başlığı Reklam Başlığı</h5>
+                                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
+
+                                                                    <span style="color:red;font-weight: bold;  padding-top: 10px;">
+                                                                        Reklam Veren Firma
+                                                                    </span>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" target="_blank">
+                                                            <img class="card-img card-img-right" src="/assets/img/briefxlogo.png" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    }
+
 
 
                                 </div>
@@ -269,6 +523,9 @@
 
                         </div>
                     </div>
+                  
+                  
+
                 </div>
                 <!-- / Content -->
                 <!-- Footer -->
@@ -278,11 +535,11 @@
             </div>
             <!-- Content wrapper -->
         </div>
-            <!-- / Layout page -->
-        </div>
+        <!-- / Layout page -->
+    </div>
 
-        <!-- Overlay -->
-        <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
 

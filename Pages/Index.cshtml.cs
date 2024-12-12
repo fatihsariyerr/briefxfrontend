@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml;
 using HtmlAgilityPack;
+using Microsoft.AspNetCore.Http;
 
 namespace pulseui.Pages
 {
@@ -21,79 +22,181 @@ namespace pulseui.Pages
     public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
     public List<Haber> news { get; set; } = new List<Haber> { };
 
+
+
+
+
+    public static string Location { get; set; }
+
     public static string UsdRate { get; set; }
     public static string EuroRate { get; set; }
     public static string GramAltinRate { get; set; }
     public static string BtcRate { get; set; }
+
+
+    public IActionResult OnPostChangeLocation(string location)
+    {
+      IndexModel.Location = location;
+
+      return RedirectToPage("/Index");
+
+    }
+
+
+
+    public async Task GetLocation()
+    {
+      if (string.IsNullOrEmpty(HttpContext.Session.GetString("Country")))
+      {
+        var userIP = "";
+        var Country = "";
+        using (var client = new HttpClient())
+        {
+          client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.28.4");
+          userIP = await client.GetStringAsync("https://api.ipify.org");
+
+        }
+        using (var client = new HttpClient())
+        {
+          client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.28.4");
+          Country = await client.GetStringAsync("https://ipapi.co/" + userIP + "/country");
+        }
+
+        IndexModel.Location = Country;
+        HttpContext.Session.SetString("Country", Location);
+      }
+
+    }
+
     public async Task OnGetAsync(string search = null)
     {
+      await GetLocation();
       BtcRate = await FetchBTCLastFieldValue();
       GramAltinRate = await FetchLastFieldValue();
       UsdRate = await GetUsdRateAsync();
       EuroRate = await GetEuroRateAsync();
       Sondakika();
-      _connectionString = "User ID=atedevuser1;Password=atedevpostgrepwd1;Server=10.150.0.79;Port=31821;Database=pulse;";
-
-      using (var connection = new NpgsqlConnection(_connectionString))
+      _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+      if (Location=="TR")
       {
-        connection.Open();
-
-        string query = "SELECT * FROM news where category='gundem' ORDER BY publishdate DESC";
-        if (!string.IsNullOrEmpty(search))
+        using (var connection = new NpgsqlConnection(_connectionString))
         {
-          query = "SELECT * FROM news where title ILIKE @search ORDER BY publishdate DESC";
+          connection.Open();
+          string query = "SELECT * FROM news where category='gundem' ORDER BY publishdate DESC";
+          if (!string.IsNullOrEmpty(search) )
+          {
+            query = "SELECT * FROM news where title ILIKE @search ORDER BY publishdate DESC";
+          }
+          using (var command = new NpgsqlCommand(query, connection))
+          {
+            if (!string.IsNullOrEmpty(search))
+            {
+              command.Parameters.AddWithValue("@search", "%" + search + "%");
+            }
+
+            using (var reader = command.ExecuteReader())
+            {
+              while (reader.Read())
+              {
+                var publishedAt = reader.GetDateTime(reader.GetOrdinal("publishdate"));
+
+                DateTime now = DateTime.Now;
+                TimeSpan timeDifference = now - publishedAt;
+
+                string timeAgo;
+                if (timeDifference.TotalMinutes < 60)
+                {
+                  timeAgo = $"{(int)timeDifference.TotalMinutes} dakika önce";
+                }
+                else if (timeDifference.TotalHours < 24)
+                {
+                  timeAgo = $"{(int)timeDifference.TotalHours} saat önce";
+                }
+                else
+                {
+                  timeAgo = $"{(int)timeDifference.TotalDays} gün önce";
+                }
+
+                var cekilenhaber = new Haber
+                {
+                  Title = reader.GetString(reader.GetOrdinal("title")),
+                  ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
+                  Link = reader.GetString(reader.GetOrdinal("link")),
+                  Publisher = reader.GetString(reader.GetOrdinal("publisher")),
+                  PublishedAtFormatted = timeAgo
+                };
+
+                news.Add(cekilenhaber);
+              }
+            }
+          }
         }
-
-        using (var command = new NpgsqlCommand(query, connection))
+        }
+      else
+      {
+        using (var connection = new NpgsqlConnection(_connectionString))
         {
+          connection.Open();
+          string query = "SELECT * FROM newsinternational where category='news' ORDER BY publishdate DESC";
           if (!string.IsNullOrEmpty(search))
           {
-            command.Parameters.AddWithValue("@search", "%" + search + "%");
+            query = "SELECT * FROM newsinternational where title ILIKE @search ORDER BY publishdate DESC";
           }
-
-          using (var reader = command.ExecuteReader())
+          using (var command = new NpgsqlCommand(query, connection))
           {
-            while (reader.Read())
+            if (!string.IsNullOrEmpty(search))
             {
-              var publishedAt = reader.GetDateTime(reader.GetOrdinal("publishdate"));
+              command.Parameters.AddWithValue("@search", "%" + search + "%");
+            }
 
-              DateTime now = DateTime.Now;
-              TimeSpan timeDifference = now - publishedAt;
-
-              string timeAgo;
-              if (timeDifference.TotalMinutes < 60)
+            using (var reader = command.ExecuteReader())
+            {
+              while (reader.Read())
               {
-                timeAgo = $"{(int)timeDifference.TotalMinutes} dakika önce";
+                var publishedAt = reader.GetDateTime(reader.GetOrdinal("publishdate"));
+             
+                DateTime now = DateTime.Now;
+                var guncelzaman = publishedAt;
+                TimeSpan timeDifference = now - guncelzaman;
+
+                string timeAgo;
+                if (guncelzaman.Day!=now.Day)
+                {
+                  timeAgo = guncelzaman.ToString() + " GMT";
+                }
+                else
+                {
+                  timeAgo = guncelzaman.Hour.ToString() + ":" + guncelzaman.Minute.ToString("D2") + ":" + guncelzaman.Second.ToString("D2") + " GMT";
+                }
+                
+                var cekilenhaber = new Haber
+                {
+                  Title = reader.GetString(reader.GetOrdinal("title")),
+                  ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
+                  Link = reader.GetString(reader.GetOrdinal("link")),
+                  Publisher = reader.GetString(reader.GetOrdinal("publisher")),
+                  PublishedAtFormatted = timeAgo
+                };
+
+                news.Add(cekilenhaber);
               }
-              else if (timeDifference.TotalHours < 24)
-              {
-                timeAgo = $"{(int)timeDifference.TotalHours} saat önce";
-              }
-              else
-              {
-                timeAgo = $"{(int)timeDifference.TotalDays} gün önce";
-              }
-
-              var cekilenhaber = new Haber
-              {
-                Title = reader.GetString(reader.GetOrdinal("title")),
-                ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
-                Link = reader.GetString(reader.GetOrdinal("link")),
-                Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-                PublishedAtFormatted = timeAgo
-              };
-
-              news.Add(cekilenhaber);
             }
           }
         }
       }
+     
+
+
+
     }
 
     public void Sondakika()
     {
-      _connectionString = "User ID=atedevuser1;Password=atedevpostgrepwd1;Server=10.150.0.79;Port=31821;Database=pulse;";
+      _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+      if (Location == "TR")
+      {
 
+     
       using (var connection = new NpgsqlConnection(_connectionString))
       {
         connection.Open();
@@ -147,15 +250,74 @@ namespace pulseui.Pages
           }
         }
       }
+      }
+      else
+      {
+
+        using (var connection = new NpgsqlConnection(_connectionString))
+        {
+          connection.Open();
+
+          string query = @"
+                    SELECT *
+                    FROM (
+                        SELECT *,
+                            ROW_NUMBER() OVER (PARTITION BY category ORDER BY publishdate DESC) AS rn
+                        FROM newsinternational
+                        WHERE category IN ('news', 'sport', 'life', 'tech')
+                    ) AS subquery
+                    WHERE rn = 1;";
+
+          using (var command = new NpgsqlCommand(query, connection))
+          {
+            using (var reader = command.ExecuteReader())
+            {
+              while (reader.Read())
+              {
+                var publishedAt = reader.GetDateTime(reader.GetOrdinal("publishdate"));
+
+                DateTime now = DateTime.Now;
+                TimeSpan timeDifference = now - publishedAt;
+
+                string timeAgo;
+                if (timeDifference.TotalMinutes < 60)
+                {
+                  timeAgo = $"{(int)timeDifference.TotalMinutes} minutes ago";
+                }
+                else if (timeDifference.TotalHours < 24)
+                {
+                  timeAgo = $"{(int)timeDifference.TotalHours} hours ago";
+                }
+                else
+                {
+                  timeAgo = $"{(int)timeDifference.TotalDays} days ago";
+                }
+
+                var cekilenhaber = new SonDakika
+                {
+                  Title = reader.GetString(reader.GetOrdinal("title")),
+                  ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
+                  Link = reader.GetString(reader.GetOrdinal("link")),
+                  Publisher = reader.GetString(reader.GetOrdinal("publisher")),
+                  PublishedAtFormatted = timeAgo
+                };
+
+                sondakikahaberleri.Add(cekilenhaber);
+              }
+            }
+          }
+        }
+      }
+
+
     }
 
 
 
-   
-      public async Task<string> FetchBTCLastFieldValue()
-    {
 
-      var url = " https://webservice.foreks.com/foreks-web-widget/qbOBC";
+    public async Task<string> FetchBTCLastFieldValue()
+    {
+      var url = "https://webservice.foreks.com/foreks-web-widget/qbOBC";
       using (HttpClient client = new HttpClient())
       {
         var response = await client.GetAsync(url);
@@ -167,24 +329,20 @@ namespace pulseui.Pages
         var lastFieldNode = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='lastField']");
         if (lastFieldNode != null)
         {
-          string originalValue= lastFieldNode.InnerText.Trim();
-          int decimalIndex = originalValue.IndexOf('.');
+          string originalValue = lastFieldNode.InnerText.Trim();
 
-          string result;
-          if (decimalIndex != -1)
-          {
-            result = originalValue.Substring(0, decimalIndex);
-          }
-          else
-          {
-            result = originalValue;
-          }
-          return result ;
+       
+          var numericValue = double.Parse(originalValue.Replace("$", "").Replace(",", ""), System.Globalization.CultureInfo.InvariantCulture);
+
+          var formattedValue = $"{Math.Floor(numericValue):N0}";
+
+          return formattedValue;
         }
 
         return null;
       }
     }
+
     public async Task<string> FetchLastFieldValue()
     {
 
@@ -200,20 +358,13 @@ namespace pulseui.Pages
         var lastFieldNode = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='lastField']");
         if (lastFieldNode != null)
         {
-          string originalValue =lastFieldNode.InnerText.Trim();
-          int decimalIndex = originalValue.IndexOf('.');
+           string originalValue = lastFieldNode.InnerText.Trim();
 
-          string result;
-          if (decimalIndex != -1)
-          {
-            result = originalValue.Substring(0, decimalIndex);
-          }
-          else
-          {
-            
-            result = originalValue;
-          }
-          return result;
+       
+          var numericValue = double.Parse(originalValue.Replace("$", "").Replace(",", ""), System.Globalization.CultureInfo.InvariantCulture);
+
+          var formattedValue = $"{Math.Floor(numericValue):N0}";
+          return formattedValue;
         }
 
         return null;

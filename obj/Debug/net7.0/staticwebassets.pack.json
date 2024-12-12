@@ -5,16 +5,52 @@
       "PackagePath": "staticwebassets/pulseui.bundle.scp.css"
     },
     {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/.DS_Store",
+      "PackagePath": "staticwebassets/assets/.DS_Store"
+    },
+    {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/css/mobile.css",
       "PackagePath": "staticwebassets/assets/css/mobile.css"
     },
     {
-      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/PulseLogo.png",
-      "PackagePath": "staticwebassets/assets/img/PulseLogo.png"
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/.DS_Store",
+      "PackagePath": "staticwebassets/assets/img/.DS_Store"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/2bitcoin.png",
+      "PackagePath": "staticwebassets/assets/img/2bitcoin.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/bitcoin.png",
+      "PackagePath": "staticwebassets/assets/img/bitcoin.png"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/briefxlogo.png",
       "PackagePath": "staticwebassets/assets/img/briefxlogo.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/d1d1.png",
+      "PackagePath": "staticwebassets/assets/img/d1d1.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/dolla2r.png",
+      "PackagePath": "staticwebassets/assets/img/dolla2r.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/dollar.png",
+      "PackagePath": "staticwebassets/assets/img/dollar.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/euro.png",
+      "PackagePath": "staticwebassets/assets/img/euro.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/euro2.png",
+      "PackagePath": "staticwebassets/assets/img/euro2.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/gold-bars.png",
+      "PackagePath": "staticwebassets/assets/img/gold-bars.png"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/css/site.css",

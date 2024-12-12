@@ -8,10 +8,19 @@ public class BilimModel : PageModel
 {
     private readonly ILogger<BilimModel> _logger;
 
-    public BilimModel(ILogger<BilimModel> logger)
+
+
+  public BilimModel(ILogger<BilimModel> logger)
     {
         _logger = logger;
     }
+  public IActionResult OnPostChangeLocation(string location)
+  {
+    IndexModel.Location = location;
+
+    return RedirectToPage("/Technology");
+
+  }
   private string _connectionString;
   public List<Haber> news { get; set; } = new List<Haber> { };
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
@@ -59,8 +68,9 @@ public class BilimModel : PageModel
   }
   public void OnGet(string search = null) 
   {
+  
     Sondakika();
-    _connectionString = "User ID=atedevuser1;Password=atedevpostgrepwd1;Server=10.150.0.79;Port=31821;Database=pulse;";
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
 
     using (var connection = new NpgsqlConnection(_connectionString))
     {
@@ -121,7 +131,7 @@ public class BilimModel : PageModel
 
   public void Sondakika()
   {
-    _connectionString = "User ID=atedevuser1;Password=atedevpostgrepwd1;Server=10.150.0.79;Port=31821;Database=pulse;";
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
 
     using (var connection = new NpgsqlConnection(_connectionString))
     {
