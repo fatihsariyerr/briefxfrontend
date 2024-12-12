@@ -48,13 +48,12 @@ namespace pulseui.Pages
 
     public async Task OnGetAsync(string search = null)
     {
-      if (string.IsNullOrEmpty(IndexModel.Location))
-      {
+     
         BtcRate = await FetchBTCLastFieldValue();
         GramAltinRate = await FetchLastFieldValue();
         UsdRate = await GetUsdRateAsync();
         EuroRate = await GetEuroRateAsync();
-      }
+     
       
    
       Sondakika();
