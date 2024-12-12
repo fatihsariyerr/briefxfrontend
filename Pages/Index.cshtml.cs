@@ -34,15 +34,6 @@ namespace pulseui.Pages
     public static string BtcRate { get; set; }
 
 
-    public IActionResult OnPostChangeLocation(string location)
-    {
-      Location = location;
-
-      return RedirectToPage("/Index");
-
-    }
-
-
 
    
 
