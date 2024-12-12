@@ -13,13 +13,7 @@ public class YasamModel : PageModel
     }
   private string _connectionString;
   public List<Haber> news { get; set; } = new List<Haber> { };
-  public IActionResult OnPostChangeLocation(string location)
-  {
-    IndexModel.Location = location;
 
-    return RedirectToPage("/Life");
-
-  }
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
   public void OnGet(string search = null)
   {

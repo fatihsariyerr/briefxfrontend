@@ -59,13 +59,7 @@ public class SportModel : PageModel
       return "Değer bulunamadı";
     }
   }
-  public IActionResult OnPostChangeLocation(string location)
-  {
-    IndexModel.Location = location;
-
-    return RedirectToPage("/Spor");
-
-  }
+ 
   public void OnGet(string search = null) 
   {
   

@@ -15,13 +15,7 @@ public class GamingModel : PageModel
   private string _connectionString;
   public List<Haber> news { get; set; } = new List<Haber> { };
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
-  public IActionResult OnPostChangeLocation(string location)
-  {
-    IndexModel.Location = location;
 
-    return RedirectToPage("/GamingInternational");
-
-  }
   public void OnGet(string search = null)
   {
     Sondakika();

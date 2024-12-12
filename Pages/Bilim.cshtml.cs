@@ -14,13 +14,7 @@ public class BilimModel : PageModel
     {
         _logger = logger;
     }
-  public IActionResult OnPostChangeLocation(string location)
-  {
-    IndexModel.Location = location;
-
-    return RedirectToPage("/Technology");
-
-  }
+ 
   private string _connectionString;
   public List<Haber> news { get; set; } = new List<Haber> { };
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };

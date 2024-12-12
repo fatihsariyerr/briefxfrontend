@@ -59,13 +59,7 @@ public class LifeModel : PageModel
       return "Değer bulunamadı";
     }
   }
-  public IActionResult OnPostChangeLocation(string location)
-  {
-    IndexModel.Location = location;
-
-    return RedirectToPage("/Yasam");
-
-  }
+ 
   public void OnGet(string search = null) 
   {
   

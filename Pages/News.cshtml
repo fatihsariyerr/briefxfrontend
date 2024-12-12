@@ -1,7 +1,7 @@
 ﻿@page
-@model TechnologyModel
+@model NewsModel
 @{
-    ViewData["Title"] = "BriefX | Technology";
+    ViewData["Title"] = "BriefX | News";
 }
 
 <body>
@@ -33,12 +33,12 @@
                             <span class="badge rounded-pill bg-danger ms-auto">4</span>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item ">
+                            <li class="menu-item active">
                                 <a href="/" class="menu-link" style="text-decoration: none;">
                                     <div class="text-truncate" data-i18n="Analytics">World </div>
                                 </a>
                             </li>
-                            <li class="menu-item active">
+                            <li class="menu-item ">
                                 <a href="/Technology" class="menu-link" style="text-decoration: none;">
                                     <div class="text-truncate" data-i18n="CRM">Science & Technology</div>
                                 </a>
@@ -60,7 +60,7 @@
                         <span class="menu-header-text">Entertainment</span>
 
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item ">
                         <a href="/Tests" class="menu-link" style="text-decoration: none;">
                             <i class="menu-icon tf-icons bx bx-test-tube" style="text-decoration: none;"></i>
                             <div class="text-truncate" data-i18n="Boxicons">Tests</div>
@@ -68,7 +68,7 @@
                     </li>
 
 
-                    <li class="menu-item">
+                    <li class="menu-item ">
                         <a href="/GamingInternational" class="menu-link" style="text-decoration: none;">
                             <i class="menu-icon tf-icons bx bx-ghost" style="text-decoration: none;"></i>
                             <div class="text-truncate" data-i18n="Boxicons">Gaming</div>
@@ -154,7 +154,7 @@
                                        aria-label="Search News ..."
                                        style="flex-grow: 1;" />
                                 <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
-                                <a href="/Bilim" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
+                                <a href="/Gaming" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
                                     <img src="https://www.bundle.app/_nuxt/img/flag_tr.c8a2d46.png" alt="TR" style="width: 20px; height: auto; margin-right: 8px;" />
                                     TR
                                 </a>
@@ -193,7 +193,7 @@
                         <div class="row">
                             <div class="col-xxl-8 mb-6 order-0">
                                 <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
-                                  
+                                    
                                         @foreach (var haber in Model.news)
                                         {
                                             <div class="col">
@@ -206,7 +206,7 @@
                                                         <span style="color:red;font-weight: bold; padding-left: 12px; padding-top: 10px;">
                                                             @haber.Publisher
                                                         </span>
-                                                          <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
+                                                        <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
                                                             @haber.PublishedAtFormatted
                                                         </span>
                                                     </div>
@@ -229,12 +229,11 @@
                             <div class="col-lg-4 col-md-4 order-1">
 
                                 <div class="row">
-                                
-                                   
+                                  
                                         <h3 style="padding-top:5px;text-align:left;">Breaking News</h3>
-                                   
+                                  
                                 <div class="col-lg-12 col-md-12 col-12 mb-12">
-                                 
+                                  
                                         @foreach (var sondakika in Model.sondakikahaberleri)
                                         {
                                             <div class="card">
@@ -262,7 +261,7 @@
                                                 </div>
                                             </div>
                                             <br />}
-                                    
+                                   
 
                                 </div>
 
