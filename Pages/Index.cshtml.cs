@@ -26,7 +26,7 @@ namespace pulseui.Pages
 
 
 
-    public static string Location { get; set; }
+    public static string Location { get; set; } = "TR";
 
     public static string UsdRate { get; set; }
     public static string EuroRate { get; set; }
@@ -44,42 +44,19 @@ namespace pulseui.Pages
 
 
 
-    public async Task GetLocation()
-    {
-      if (string.IsNullOrEmpty(HttpContext.Session.GetString("Country")))
-      {
-        var userIP = "";
-        var Country = "";
-        using (var client = new HttpClient())
-        {
-          client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.28.4");
-          userIP = await client.GetStringAsync("https://api.ipify.org");
-
-        }
-        using (var client = new HttpClient())
-        {
-          client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.28.4");
-          Country = await client.GetStringAsync("https://ipapi.co/" + userIP + "/country");
-        }
-
-        IndexModel.Location = Country;
-        HttpContext.Session.SetString("Country", Location);
-      }
-
-    }
+   
 
     public async Task OnGetAsync(string search = null)
     {
       if (string.IsNullOrEmpty(IndexModel.Location))
       {
-        await GetLocation();
         BtcRate = await FetchBTCLastFieldValue();
         GramAltinRate = await FetchLastFieldValue();
         UsdRate = await GetUsdRateAsync();
         EuroRate = await GetEuroRateAsync();
       }
       
-     
+   
       Sondakika();
       _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
       if (Location=="TR")
