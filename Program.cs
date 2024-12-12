@@ -28,7 +28,6 @@ if (!app.Environment.IsDevelopment())
   app.UseHsts();  // HSTS için
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
