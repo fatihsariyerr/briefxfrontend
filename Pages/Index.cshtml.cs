@@ -70,11 +70,16 @@ namespace pulseui.Pages
 
     public async Task OnGetAsync(string search = null)
     {
-      await GetLocation();
-      BtcRate = await FetchBTCLastFieldValue();
-      GramAltinRate = await FetchLastFieldValue();
-      UsdRate = await GetUsdRateAsync();
-      EuroRate = await GetEuroRateAsync();
+      if (string.IsNullOrEmpty(IndexModel.Location))
+      {
+        await GetLocation();
+        BtcRate = await FetchBTCLastFieldValue();
+        GramAltinRate = await FetchLastFieldValue();
+        UsdRate = await GetUsdRateAsync();
+        EuroRate = await GetEuroRateAsync();
+      }
+      
+     
       Sondakika();
       _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
       if (Location=="TR")
