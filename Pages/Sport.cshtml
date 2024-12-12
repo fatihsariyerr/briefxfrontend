@@ -81,10 +81,10 @@
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
                         <img style="width: 25px; height: 25px;" src="/assets/img/dollar.png" alt="Dollar icon"> <span style="margin-left: 15px;">
-                                @if (Convert.ToDecimal(IndexModel.EuroRate) != 0)
+                                @if (Convert.ToDecimal(SportModel.EuroRate) != 0)
                                 {
-                                    decimal euroRate = Convert.ToDecimal(IndexModel.EuroRate);
-                                    var euroValue = Convert.ToDecimal(IndexModel.UsdRate) / euroRate;
+                                    decimal euroRate = Convert.ToDecimal(SportModel.EuroRate);
+                                    var euroValue = Convert.ToDecimal(SportModel.UsdRate) / euroRate;
                                     @euroValue.ToString("F2").Replace(",",".")
                                 }
                                 else
@@ -98,10 +98,10 @@
                         <div class="menu-link" style="display: flex; align-items: center;">
                             <img style="width: 25px; height: 25px;" src="/assets/img/euro.png" alt="Euro icon">
                             <span style=" margin-left: 15px;">
-                                @if (Convert.ToDecimal(IndexModel.UsdRate) != 0)
+                                @if (Convert.ToDecimal(BilimModel.UsdRate) != 0)
                                 {
-                                    decimal euroRate = Convert.ToDecimal(IndexModel.UsdRate);
-                                    var euroValue = Convert.ToDecimal(IndexModel.EuroRate) / euroRate;
+                                    decimal euroRate = Convert.ToDecimal(SportModel.UsdRate);
+                                    var euroValue = Convert.ToDecimal(SportModel.EuroRate) / euroRate;
                                     @euroValue.ToString("F2").Replace(",",".")
                                 }
                                 else
@@ -114,7 +114,7 @@
                     <li class="menu-item">
                         <div class="menu-link" style="display: flex; align-items: center;">
                             <img style="width: 25px; height: 25px;" src="/assets/img/bitcoin.png" alt="BTC Icon">
-                            <span style=" margin-left: 15px;">@IndexModel.BtcRate $</span>
+                            <span style=" margin-left: 15px;">@SportModel.BtcRate $</span>
                         </div>
                     </li>
                     <li class="menu-header small text-uppercase">

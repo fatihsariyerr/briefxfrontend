@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HtmlAgilityPack;
+using System.Xml;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Npgsql;
 namespace pulseui.Pages;
@@ -7,16 +9,155 @@ public class YasamModel : PageModel
 {
     private readonly ILogger<YasamModel> _logger;
 
-    public YasamModel(ILogger<YasamModel> logger)
+
+
+  public static string UsdRate { get; set; }
+  public static string EuroRate { get; set; }
+  public static string GramAltinRate { get; set; }
+  public static string BtcRate { get; set; }
+  public YasamModel(ILogger<YasamModel> logger)
     {
         _logger = logger;
     }
   private string _connectionString;
   public List<Haber> news { get; set; } = new List<Haber> { };
 
-  public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
-  public void OnGet(string search = null)
+
+  public async Task<string> FetchBTCLastFieldValue()
   {
+    var url = "https://webservice.foreks.com/foreks-web-widget/qbOBC";
+    using (HttpClient client = new HttpClient())
+    {
+      var response = await client.GetAsync(url);
+      var pageContent = await response.Content.ReadAsStringAsync();
+      var htmlDoc = new HtmlDocument();
+
+      htmlDoc.LoadHtml(pageContent);
+
+      var lastFieldNode = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='lastField']");
+      if (lastFieldNode != null)
+      {
+        string originalValue = lastFieldNode.InnerText.Trim();
+
+
+        var numericValue = double.Parse(originalValue.Replace("$", "").Replace(",", ""), System.Globalization.CultureInfo.InvariantCulture);
+
+        var formattedValue = $"{Math.Floor(numericValue):N0}";
+
+        return formattedValue;
+      }
+
+      return null;
+    }
+  }
+
+  public async Task<string> FetchLastFieldValue()
+  {
+
+    var url = "https://webservice.foreks.com/foreks-web-widget/RoyVJ";
+    using (HttpClient client = new HttpClient())
+    {
+      var response = await client.GetAsync(url);
+      var pageContent = await response.Content.ReadAsStringAsync();
+      var htmlDoc = new HtmlDocument();
+
+      htmlDoc.LoadHtml(pageContent);
+
+      var lastFieldNode = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='lastField']");
+      if (lastFieldNode != null)
+      {
+        string originalValue = lastFieldNode.InnerText.Trim();
+
+
+        var numericValue = double.Parse(originalValue.Replace("$", "").Replace(",", ""), System.Globalization.CultureInfo.InvariantCulture);
+
+        var formattedValue = $"{Math.Floor(numericValue):N0}";
+        return formattedValue;
+      }
+
+      return null;
+    }
+  }
+
+
+
+
+
+  public async Task<string> GetEuroRateAsync()
+  {
+    var url = "https://www.tcmb.gov.tr/kurlar/today.xml";
+    using (HttpClient client = new HttpClient())
+    {
+      var response = await client.GetStringAsync(url);
+      XmlDocument xmlDocument = new XmlDocument();
+      xmlDocument.LoadXml(response);
+
+      XmlNode usdNode = xmlDocument.SelectSingleNode("//Currency[@CurrencyCode='EUR']");
+      if (usdNode != null)
+      {
+        XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexSelling");
+        if (forexBuyingNode != null)
+        {
+          string originalValue = forexBuyingNode.InnerText;
+          int decimalIndex = originalValue.IndexOf('.');
+
+          if (decimalIndex != -1 && decimalIndex + 3 <= originalValue.Length)
+          {
+
+            string result = originalValue.Substring(0, decimalIndex + 3);
+            return result;
+          }
+
+
+
+        }
+      }
+      return "Değer bulunamadı";
+    }
+  }
+
+
+
+
+
+  public async Task<string> GetUsdRateAsync()
+  {
+    var url = "https://www.tcmb.gov.tr/kurlar/today.xml";
+    using (HttpClient client = new HttpClient())
+    {
+      var response = await client.GetStringAsync(url);
+      XmlDocument xmlDocument = new XmlDocument();
+      xmlDocument.LoadXml(response);
+
+      XmlNode usdNode = xmlDocument.SelectSingleNode("//Currency[@CurrencyCode='USD']");
+      if (usdNode != null)
+      {
+        XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexSelling");
+        if (forexBuyingNode != null)
+        {
+          string originalValue = forexBuyingNode.InnerText;
+          int decimalIndex = originalValue.IndexOf('.');
+
+          if (decimalIndex != -1 && decimalIndex + 3 <= originalValue.Length)
+          {
+
+            string result = originalValue.Substring(0, decimalIndex + 3);
+            return result;
+          }
+        }
+      }
+      return "Değer bulunamadı";
+    }
+  }
+  public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
+  public async Task OnGetAsync(string search = null)
+  {
+
+    BtcRate = await FetchBTCLastFieldValue();
+    GramAltinRate = await FetchLastFieldValue();
+    UsdRate = await GetUsdRateAsync();
+    EuroRate = await GetEuroRateAsync();
+
     Sondakika();
     _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
 

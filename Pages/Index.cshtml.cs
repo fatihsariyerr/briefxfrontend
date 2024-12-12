@@ -247,7 +247,7 @@ namespace pulseui.Pages
         XmlNode usdNode = xmlDocument.SelectSingleNode("//Currency[@CurrencyCode='EUR']");
         if (usdNode != null)
         {
-          XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexBuying");
+          XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexSelling");
           if (forexBuyingNode != null)
           {
             string originalValue = forexBuyingNode.InnerText;
@@ -284,7 +284,7 @@ namespace pulseui.Pages
         XmlNode usdNode = xmlDocument.SelectSingleNode("//Currency[@CurrencyCode='USD']");
         if (usdNode != null)
         {
-          XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexBuying");
+          XmlNode forexBuyingNode = usdNode.SelectSingleNode("ForexSelling");
           if (forexBuyingNode != null)
           {
             string originalValue = forexBuyingNode.InnerText;
