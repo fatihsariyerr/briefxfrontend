@@ -213,7 +213,7 @@
                                                     <a href="@haber.Link" target="_blank" style="text-decoration: none; color: inherit;">
                                                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
                                                             <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
-                                                                @haber.Title
+                                                                @haber.Title.Replace("&apos;", "'");
                                                             </h5>
                                                         </div>
                                                     </a>
