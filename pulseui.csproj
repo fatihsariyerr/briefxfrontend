@@ -16,7 +16,6 @@
     <None Remove="libs\" />
     <None Remove="scss\" />
     <None Remove="tasks\" />
-    <None Remove="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -26,7 +25,6 @@
     <Folder Include="scss\" />
     <Folder Include="tasks\" />
     <Folder Include="wwwroot\assets\" />
-    <Folder Include="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\assets\css\demo.css" />

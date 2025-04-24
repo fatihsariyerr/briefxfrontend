@@ -157,26 +157,7 @@
                                 EU
                             </a>
 
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <p>Hoş geldin, @User.FindFirst("given_name")?.Value @User.FindFirst("family_name")?.Value</p>
-                            }
-
-                            @if (User.Identity.IsAuthenticated)
-                            {
-
-
-                                <a href="/Account/Logout" class="btn btn-icon btn-outline-primary ms-2" style="text-decoration: none;">
-                                    <i class="bx bx-log-out"></i>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="/Account/Login" class="btn btn-icon btn-outline-primary ms-2" style="text-decoration: none;">
-                                    <i class="bx bx-log-in"></i>
-                                </a>
-                            }
-
+                          
 
                         </div>
                     </div>
