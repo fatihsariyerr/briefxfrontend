@@ -9,21 +9,22 @@ var builder = WebApplication.CreateBuilder(args);
 // Authentication servislerini ekleyin
 builder.Services.AddAuthentication(options =>
 {
-  options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-  options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+  options.DefaultScheme = "Cookies";
+  options.DefaultChallengeScheme = "Google";
 })
-.AddCookie(options =>
+.AddCookie("Cookies", options =>
 {
   options.LoginPath = "/Account/Login";
   options.LogoutPath = "/Account/Logout";
 })
-.AddGoogle(options =>
+.AddGoogle("Google", options =>
 {
   // Google Cloud Console'dan alınan bilgilerle değiştirilecek
   options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
   options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
   options.CallbackPath = "/signin-google";
 });
+
 
 builder.Services.AddRazorPages();
 builder.Services.AddRazorPages()
@@ -38,7 +39,7 @@ builder.Services.AddSession(options =>
   options.Cookie.IsEssential = true;
 });
 builder.Services.AddHttpClient();
-
+builder.Services.AddAuthentication();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

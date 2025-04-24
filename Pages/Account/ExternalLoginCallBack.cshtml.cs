@@ -13,7 +13,6 @@ namespace pulseui.Pages.Account
     {
     public async Task<IActionResult> OnGetAsync(string returnUrl = null)
     {
-      // External şemada kimlik doğrulama kontrolü
       var result = await HttpContext.AuthenticateAsync("External");
 
       if (!result.Succeeded)
@@ -25,12 +24,12 @@ namespace pulseui.Pages.Account
       var emailClaim = result.Principal.FindFirst(ClaimTypes.Email);
       var nameClaim = result.Principal.FindFirst(ClaimTypes.Name);
 
-      // Kullanıcı kimliğini oluşturun
+      // Kimlik oluşturun
       var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, emailClaim?.Value),
                 new Claim(ClaimTypes.Name, nameClaim?.Value),
-                // İsteğe bağlı: Diğer kullanıcı bilgilerini ekleyebilirsiniz
+                // İhtiyacınıza göre diğer talepleri ekleyin
             };
 
       var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
@@ -42,7 +41,6 @@ namespace pulseui.Pages.Account
       // Harici kimlik doğrulamadan çıkış yapın
       await HttpContext.SignOutAsync("External");
 
-      // Kullanıcıyı uygun sayfaya yönlendirin
       if (returnUrl != null)
       {
         return LocalRedirect(returnUrl);
