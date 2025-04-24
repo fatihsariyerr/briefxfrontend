@@ -334,17 +334,19 @@ public class SportModel : PageModel
     public string Publisher { get; set; }
     public string PublishedAtFormatted { get; set; }
     public string Category { get; set; }
+ 
   }
 
   public class Haber
-    {
-      public int Id { get; set; }
-      public string Title { get; set; }
-      public string ImageUrl { get; set; }
-      public string Link { get; set; }
-      public string Publisher { get; set; }
-      public string PublishedAtFormatted { get; set; }
-      public string Category { get; set; }
+  {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string ImageUrl { get; set; }
+    public string Link { get; set; }
+    public string Publisher { get; set; }
+    public string PublishedAtFormatted { get; set; }
+    public string Category { get; set; }
+
   }
 
 }

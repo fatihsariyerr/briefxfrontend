@@ -68,7 +68,8 @@ public class TestlerModel : PageModel
               ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
               Link = reader.GetString(reader.GetOrdinal("link")),
               Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-              PublishedAtFormatted = timeAgo
+              PublishedAtFormatted = timeAgo,
+              Slug = reader.GetString(reader.GetOrdinal("slug"))
             };
 
             moreNews.Add(haber);
@@ -263,7 +264,8 @@ public class TestlerModel : PageModel
               ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
               Link = reader.GetString(reader.GetOrdinal("link")),
               Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-              PublishedAtFormatted = timeAgo 
+              PublishedAtFormatted = timeAgo,
+              Slug = reader.GetString(reader.GetOrdinal("slug"))
             };
 
             news.Add(cekilenhaber);
@@ -329,7 +331,8 @@ public class TestlerModel : PageModel
               ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
               Link = reader.GetString(reader.GetOrdinal("link")),
               Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-              PublishedAtFormatted = timeAgo
+              PublishedAtFormatted = timeAgo,
+              Slug = reader.GetString(reader.GetOrdinal("slug"))
             };
 
             sondakikahaberleri.Add(cekilenhaber);
@@ -348,16 +351,19 @@ public class TestlerModel : PageModel
     public string Publisher { get; set; }
     public string PublishedAtFormatted { get; set; }
     public string Category { get; set; }
+    public string Slug { get; set; }
   }
+
   public class Haber
-    {
-      public int Id { get; set; }
-      public string Title { get; set; }
-      public string ImageUrl { get; set; }
-      public string Link { get; set; }
-      public string Publisher { get; set; }
-      public string PublishedAtFormatted { get; set; }
-      public string Category { get; set; }
+  {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string ImageUrl { get; set; }
+    public string Link { get; set; }
+    public string Publisher { get; set; }
+    public string PublishedAtFormatted { get; set; }
+    public string Category { get; set; }
+    public string Slug { get; set; }
   }
 
 }

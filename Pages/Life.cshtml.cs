@@ -68,6 +68,7 @@ public class LifeModel : PageModel
               Link = reader.GetString(reader.GetOrdinal("link")),
               Publisher = reader.GetString(reader.GetOrdinal("publisher")),
               PublishedAtFormatted = timeAgo
+           
             };
 
             moreNews.Add(haber);
@@ -258,6 +259,7 @@ public class LifeModel : PageModel
               Link = reader.GetString(reader.GetOrdinal("link")),
               Publisher = reader.GetString(reader.GetOrdinal("publisher")),
               PublishedAtFormatted = timeAgo
+          
             };
 
             news.Add(cekilenhaber);
@@ -338,14 +340,14 @@ public class LifeModel : PageModel
   }
 
   public class Haber
-    {
-      public int Id { get; set; }
-      public string Title { get; set; }
-      public string ImageUrl { get; set; }
-      public string Link { get; set; }
-      public string Publisher { get; set; }
-      public string PublishedAtFormatted { get; set; }
-      public string Category { get; set; }
+  {
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string ImageUrl { get; set; }
+    public string Link { get; set; }
+    public string Publisher { get; set; }
+    public string PublishedAtFormatted { get; set; }
+    public string Category { get; set; }
   }
 
 }

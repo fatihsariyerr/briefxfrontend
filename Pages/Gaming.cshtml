@@ -183,7 +183,7 @@
                                         <div class="col">
                                             <div class="card h-100">
 
-                                                <a href="@haber.Link" target="_blank">
+                                                <a href="/detail/@haber.Slug" >
                                                     <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy" >
                                                 </a>
                                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
@@ -195,7 +195,7 @@
                                                     </span>
                                                 </div>
 
-                                                <a href="@haber.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                <a href="/detail/@haber.Slug"  style="text-decoration: none; color: inherit;">
                                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
                                                         <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
                                                             @haber.Title.Replace("&apos;", "'")
@@ -241,7 +241,7 @@
                                                             div.className = 'col';
                                                             div.innerHTML = `
                                                                                                                             <div class="card h-100">
-                                                                                                                                <a href="${haber.link}" target="_blank">
+                                                                                                                                <a href="/detail/${haber.slug}" >
                                                                                                                                     <img class="card-img-top" src="${haber.imageUrl}"
                                                                                                                                          style="width: 100%; height: 200px; object-fit: cover;"
                                                                                                                                          alt="Haber Kapak Görseli" loading="lazy" >
@@ -254,7 +254,7 @@
                                                                                                                                         ${haber.publishedAtFormatted}
                                                                                                                                     </span>
                                                                                                                                 </div>
-                                                                                                                                <a href="${haber.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                                                                                                <a href="/detail/${haber.slug}" style="text-decoration: none; color: inherit;">
                                                                                                                                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
                                                                                                                                         <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
                                                                                                                                             ${haber.title.replace("&apos;", "'")}
@@ -288,7 +288,7 @@
                                             <div class="card">
                                                 <div class="d-flex">
                                                     <div style="width:70%;">
-                                                    <a href="@sondakika.Link" target="_blank" style="text-decoration: none; color: inherit;">
+                                                    <a href="/detail/@sondakika.Slug" style="text-decoration: none; color: inherit;">
                                                         <div class="card-body">
                                                             <h5 class="card-title">@sondakika.Title</h5>
                                                             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;  font-weight: 500; font-size: 10px;">
@@ -305,7 +305,7 @@
                                                     </a>
                                                 </div>
                                                     <div>
-                                                        <a href="@sondakika.Link" target="_blank">
+                                                        <a href="/detail/@sondakika.Slug">
                                                             <img class="card-img card-img-right" src="@sondakika.ImageUrl" style="width: 140px; height: 100%; object-fit: cover;" alt="Son Dakika Haber Görseli">
                                                         </a>
                                                     </div>

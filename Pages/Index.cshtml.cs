@@ -71,7 +71,8 @@ namespace pulseui.Pages
                 ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
                 Link = reader.GetString(reader.GetOrdinal("link")),
                 Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-                PublishedAtFormatted = timeAgo
+                PublishedAtFormatted = timeAgo,
+                Slug = reader.GetString(reader.GetOrdinal("slug"))
               };
 
               moreNews.Add(haber);
@@ -146,7 +147,8 @@ namespace pulseui.Pages
                   ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
                   Link = reader.GetString(reader.GetOrdinal("link")),
                   Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-                  PublishedAtFormatted = timeAgo
+                  PublishedAtFormatted = timeAgo,
+                  Slug = reader.GetString(reader.GetOrdinal("slug"))
                 };
 
                 news.Add(cekilenhaber);
@@ -205,7 +207,8 @@ namespace pulseui.Pages
                 ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
                 Link = reader.GetString(reader.GetOrdinal("link")),
                 Publisher = reader.GetString(reader.GetOrdinal("publisher")),
-                PublishedAtFormatted = timeAgo
+                PublishedAtFormatted = timeAgo,
+                Slug=reader.GetString(reader.GetOrdinal("slug"))
               };
 
               sondakikahaberleri.Add(cekilenhaber);
@@ -358,6 +361,7 @@ namespace pulseui.Pages
       public string Publisher { get; set; }
       public string PublishedAtFormatted { get; set; }
       public string Category { get; set; }
+      public string Slug { get; set; }
     }
 
     public class Haber
@@ -369,6 +373,7 @@ namespace pulseui.Pages
       public string Publisher { get; set; }
       public string PublishedAtFormatted { get; set; }
       public string Category { get; set; }
+      public string Slug { get; set; }
     }
   }
 }

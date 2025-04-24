@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmlsaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Detail/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGV0YWlsL0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
