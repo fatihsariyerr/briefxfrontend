@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/sariyer/Projects/pulseui/pulseui
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Account/ExternalLoginCallBack.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9FeHRlcm5hbExvZ2luQ2FsbEJhY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sariyer/Projects/pulseui/pulseui/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Mb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/sariyer/Projects/pulseui/pulseui/Pages/Bilim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQmlsaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uoxrQdF0WEQKpcSPR/b6oaasVIh81ILi9dIMbBhx7Pc=",
+  "Hash": "T3uZ6bo19ZaPrfgvJ3wwHVDVo/8mWAY1KTXt0X+KKwU=",
   "Source": "pulseui",
   "BasePath": "_content/pulseui",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "/Users/sariyer/Projects/pulseui/pulseui/obj/Debug/net7.0/scopedcss/projectbundle/pulseui.bundle.scp.css"
     },
     {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/.DS_Store",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/.DS_Store",
       "SourceId": "pulseui",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/.DS_Store"
+    },
+    {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/css/anchor.css",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "assets/css/anchor.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/css/anchor.css"
     },
     {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/css/mobile.css",
@@ -117,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/img/2bitcoin.png"
+    },
+    {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/anchor.png",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "assets/img/anchor.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/img/anchor.png"
     },
     {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/bitcoin.png",
@@ -236,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/img/euro2.png"
+    },
+    {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/europe-flag-icon.png",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "assets/img/europe-flag-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/img/europe-flag-icon.png"
     },
     {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/gold-bars.png",

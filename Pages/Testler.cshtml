@@ -132,7 +132,7 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center w-100">
-                            <div style="width:85% !important;" class="nav-item d-flex align-items-center w-100">
+                            <div style="width:95% !important;" class="nav-item d-flex align-items-center w-100">
                                 <i class="bx bx-search bx-md me-2"></i>
                                 <input type="text"
                                        id="searchInput"
@@ -142,7 +142,7 @@
                                        style="flex-grow: 1;" />
                                 <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
                                 <a href="/Tests" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
-                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.png" alt="INTERNATIONAL" style="width: 20px; height: auto; margin-right: 8px;" />
+                                    <img src="~/assets/img/europe-flag-icon.png" alt="INTERNATIONAL" style="width: 20px; height: auto; margin-right: 8px;" />
                                     EU
                                 </a>
 
@@ -178,14 +178,15 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
                             <div class="col-xxl-8 mb-6 order-0">
-                                <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
-                                    @foreach (var haber in Model.news)
+                                <div id="news-container" class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+
+                                    @foreach (var haber in Model.news.Take(15))
                                     {
                                         <div class="col">
                                             <div class="card h-100">
 
                                                 <a href="@haber.Link" target="_blank">
-                                                    <img class="card-img-top" src="https://briefx.app/api/GetNews/convert-to-webp?imageUrl=@haber.ImageUrl&quality=10" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy"> 
+                                                    <img class="card-img-top" src="@haber.ImageUrl" style="width: 100%; height: 200px; object-fit: cover;" alt="Haber Kapak Görseli" loading="lazy" >
                                                 </a>
                                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
                                                     <span style="color: red; font-weight: bold; padding-left: 12px; padding-top: 10px;">
@@ -208,6 +209,75 @@
                                     }
 
                                 </div>
+                                <div id="load-more-trigger" style="height: 50px; background-color: transparent;"></div>
+
+                                <script>document.addEventListener('DOMContentLoaded', function () {
+                                        const newsContainer = document.getElementById('news-container');
+                                        const loadMoreTrigger = document.getElementById('load-more-trigger');
+                                        let skip = 15;
+                                        const take = 15;
+
+                                        if (!newsContainer || !loadMoreTrigger) {
+                                            console.error("Gerekli HTML elemanları bulunamadı.");
+                                            return;
+                                        }
+
+                                        const observer = new IntersectionObserver(entries => {
+                                            const [entry] = entries;
+                                            if (entry.isIntersecting) {
+                                                // Yükleme işlemini tetikleyin
+                                                fetch(`/Testler?handler=LoadMore&skip=${skip}&take=${take}`)
+                                                    .then(response => {
+                                                        if (!response.ok) throw new Error("Sunucudan hata döndü.");
+                                                        return response.json();
+                                                    })
+                                                    .then(data => {
+                                                        if (!data || !Array.isArray(data) || data.length === 0) {
+                                                            console.log("Yüklenecek daha fazla haber yok.");
+                                                            observer.disconnect(); // Daha fazla yükleme yapma
+                                                            return;
+                                                        }
+
+                                                        data.forEach(haber => {
+                                                            const div = document.createElement('div');
+                                                            div.className = 'col';
+                                                            div.innerHTML = `
+                                                                                                                            <div class="card h-100">
+                                                                                                                                <a href="${haber.link}" target="_blank">
+                                                                                                                                    <img class="card-img-top" src="${haber.imageUrl}"
+                                                                                                                                         style="width: 100%; height: 200px; object-fit: cover;"
+                                                                                                                                         alt="Haber Kapak Görseli" loading="lazy" >
+                                                                                                                                </a>
+                                                                                                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px; font-weight: 500; font-size: 10px;">
+                                                                                                                                    <span style="color:red;font-weight: bold; padding-left: 12px; padding-top: 10px;">
+                                                                                                                                        ${haber.publisher}
+                                                                                                                                    </span>
+                                                                                                                                    <span style="font-weight: bold; padding-right: 12px; padding-top: 10px;">
+                                                                                                                                        ${haber.publishedAtFormatted}
+                                                                                                                                    </span>
+                                                                                                                                </div>
+                                                                                                                                <a href="${haber.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                                                                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; margin-bottom: 17px;">
+                                                                                                                                        <h5 style="padding-left: 12px; font-weight: bold;" class="card-title">
+                                                                                                                                            ${haber.title.replace("&apos;", "'")}
+                                                                                                                                        </h5>
+                                                                                                                                    </div>
+                                                                                                                                </a>
+                                                                                                                            </div>
+                                                                                                                        `;
+                                                            newsContainer.appendChild(div);
+                                                        });
+
+                                                        skip += take; // Skip değerini artır
+                                                    })
+                                                    .catch(error => {
+                                                        console.error("Haberler yüklenirken hata oluştu:", error);
+                                                    });
+                                            }
+                                        });
+
+                                        observer.observe(loadMoreTrigger);
+                                    });</script>
                             </div>
 
                             <div class="col-lg-4 col-md-4 order-1">

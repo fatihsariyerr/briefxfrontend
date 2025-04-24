@@ -1,7 +1,9 @@
-@media (max-width: 960px) { /* 768px'den daha küçük ekranlar için */
+@media (max-width: 1000px) { /* 768px'den daha küçük ekranlar için */
   .layout-navbar .navbar-nav-right {
     flex-basis: 100%;
     display: flex;
     margin-top: -55px;
     margin-left: 40px;
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    touch-action: pan-y;
   }

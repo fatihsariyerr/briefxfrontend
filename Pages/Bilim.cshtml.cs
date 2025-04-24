@@ -27,6 +27,62 @@ public class BilimModel : PageModel
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
 
 
+  public async Task<JsonResult> OnGetLoadMoreAsync(int skip, int take = 15)
+  {
+    var moreNews = new List<Haber>();
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+
+    using (var connection = new NpgsqlConnection(_connectionString))
+    {
+      await connection.OpenAsync();
+      string query = "SELECT * FROM news WHERE category='bilim' ORDER BY publishdate DESC LIMIT @take OFFSET @skip";
+
+      using (var command = new NpgsqlCommand(query, connection))
+      {
+        command.Parameters.AddWithValue("@take", take);
+        command.Parameters.AddWithValue("@skip", skip);
+
+        using (var reader = await command.ExecuteReaderAsync())
+        {
+          while (await reader.ReadAsync())
+          {
+            var publishedAt = reader.GetDateTime(reader.GetOrdinal("publishdate"));
+
+            DateTime now = DateTime.Now;
+            TimeSpan timeDifference = now - publishedAt;
+
+            string timeAgo;
+            if (timeDifference.TotalMinutes < 60)
+            {
+              timeAgo = $"{(int)timeDifference.TotalMinutes} dakika önce";
+            }
+            else if (timeDifference.TotalHours < 24)
+            {
+              timeAgo = $"{(int)timeDifference.TotalHours} saat önce";
+            }
+            else
+            {
+              timeAgo = $"{(int)timeDifference.TotalDays} gün önce";
+            }
+
+            var haber = new Haber
+            {
+              Title = reader.GetString(reader.GetOrdinal("title")),
+              ImageUrl = reader.IsDBNull(reader.GetOrdinal("image")) ? "/assets/img/briefxlogo.png" : reader.GetString(reader.GetOrdinal("image")),
+              Link = reader.GetString(reader.GetOrdinal("link")),
+              Publisher = reader.GetString(reader.GetOrdinal("publisher")),
+              PublishedAtFormatted = timeAgo
+            };
+
+            moreNews.Add(haber);
+          }
+        }
+      }
+    }
+
+    return new JsonResult(moreNews);
+  }
+
   public async Task<string> FetchBTCLastFieldValue()
   {
     var url = "https://webservice.foreks.com/foreks-web-widget/qbOBC";

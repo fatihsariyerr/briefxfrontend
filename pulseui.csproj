@@ -15,6 +15,7 @@
     <None Remove="libs\" />
     <None Remove="scss\" />
     <None Remove="tasks\" />
+    <None Remove="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -24,6 +25,7 @@
     <Folder Include="scss\" />
     <Folder Include="tasks\" />
     <Folder Include="wwwroot\assets\" />
+    <Folder Include="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\assets\css\demo.css" />
@@ -191,11 +193,13 @@
     <None Include="wwwroot\js\helpers.js" />
     <None Include="wwwroot\js\menu.js" />
     <None Include="wwwroot\assets\css\mobile.css" />
+    <None Include="wwwroot\assets\css\anchor.css" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.67" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
   </ItemGroup>
 </Project>

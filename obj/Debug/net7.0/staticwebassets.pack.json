@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets/pulseui.bundle.scp.css"
     },
     {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/.DS_Store",
       "PackagePath": "staticwebassets/assets/.DS_Store"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/css/anchor.css",
+      "PackagePath": "staticwebassets/assets/css/anchor.css"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/css/mobile.css",
@@ -19,6 +27,10 @@
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/2bitcoin.png",
       "PackagePath": "staticwebassets/assets/img/2bitcoin.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/anchor.png",
+      "PackagePath": "staticwebassets/assets/img/anchor.png"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/bitcoin.png",
@@ -47,6 +59,10 @@
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/euro2.png",
       "PackagePath": "staticwebassets/assets/img/euro2.png"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/europe-flag-icon.png",
+      "PackagePath": "staticwebassets/assets/img/europe-flag-icon.png"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/assets/img/gold-bars.png",

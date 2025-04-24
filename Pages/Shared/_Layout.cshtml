@@ -8,7 +8,7 @@
       data-template="vertical-menu-template-free"
       data-style="light">
 <head>
-
+    <link rel="preload" href="image_url" as="image">
     <meta charset="utf-8" />
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -29,10 +29,10 @@
 
     <link rel="stylesheet" href="~/assets/vendor/fonts/boxicons.css" />
 
-    <!-- Core CSS -->
     <link rel="stylesheet" href="~/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="~/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="~/assets/css/demo.css" />
+    <link rel="stylesheet" href="~/assets/css/anchor.css" />
     <link rel="stylesheet" href="~/assets/css/mobile.css" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -49,28 +49,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <button id="scrollToTop" class="btn btn-outline-primary" style="display: none;">
-        <i class="bi bi-arrow-up"></i>
+    <button style="display:none;" id="scrollToTop" class="btn-scrollToTop">
+        <img src="~/assets/img/anchor.png" alt="Scroll to Top" class="scrollToTop-icon">
     </button>
 
-    <style>
-
-
-        #scrollToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-
-            #scrollToTop:hover {
-                transform: scale(1.1);
-            }
-    </style>
-
-    <script>
-        document.getElementById('scrollToTop').addEventListener('click', function () {
+  
+    <script>document.getElementById('scrollToTop').addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -85,6 +69,8 @@
                 button.style.display = "none";
             }
         };</script>
+
+
 
     @RenderBody();
 </body>
