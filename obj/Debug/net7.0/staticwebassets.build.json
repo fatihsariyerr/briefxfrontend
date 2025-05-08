@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T3uZ6bo19ZaPrfgvJ3wwHVDVo/8mWAY1KTXt0X+KKwU=",
+  "Hash": "6moDsIwfVRG4qFciS8m+2Iv8s4IewEQXV+1KV+bmzOY=",
   "Source": "pulseui",
   "BasePath": "_content/pulseui",
   "Mode": "Default",
@@ -1341,6 +1341,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/robots.txt",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "robots.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/robots.txt"
     },
     {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/sitemap.xml",
