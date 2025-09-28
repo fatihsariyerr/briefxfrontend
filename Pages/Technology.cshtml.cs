@@ -79,33 +79,6 @@ public class TechnologyModel : PageModel
   public List<SonDakika> sondakikahaberleri { get; set; } = new List<SonDakika> { };
 
 
-  public async Task<string> FetchBTCLastFieldValue()
-  {
-    var url = "https://webservice.foreks.com/foreks-web-widget/qbOBC";
-    using (HttpClient client = new HttpClient())
-    {
-      var response = await client.GetAsync(url);
-      var pageContent = await response.Content.ReadAsStringAsync();
-      var htmlDoc = new HtmlDocument();
-
-      htmlDoc.LoadHtml(pageContent);
-
-      var lastFieldNode = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='lastField']");
-      if (lastFieldNode != null)
-      {
-        string originalValue = lastFieldNode.InnerText.Trim();
-
-
-        var numericValue = double.Parse(originalValue.Replace("$", "").Replace(",", ""), System.Globalization.CultureInfo.InvariantCulture);
-
-        var formattedValue = $"{Math.Floor(numericValue):N0}";
-
-        return formattedValue;
-      }
-
-      return null;
-    }
-  }
 
   public async Task<string> FetchLastFieldValue()
   {
@@ -208,7 +181,7 @@ public class TechnologyModel : PageModel
   public async Task OnGetAsync(string search = null)
   {
 
-    BtcRate = await FetchBTCLastFieldValue();
+  
     GramAltinRate = await FetchLastFieldValue();
     UsdRate = await GetUsdRateAsync();
     EuroRate = await GetEuroRateAsync();

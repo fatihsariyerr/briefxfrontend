@@ -99,7 +99,7 @@
                         <div class="menu-link" style="display: flex; align-items: center;">
                             <img style="width: 25px; height: 25px;" src="/assets/img/euro.png" alt="Euro icon">
                             <span style=" margin-left: 15px;">
-                                @if (Convert.ToDecimal(BilimModel.UsdRate) != 0)
+                                @if (Convert.ToDecimal(SportModel.UsdRate) != 0)
                                 {
                                     decimal euroRate = Convert.ToDecimal(SportModel.UsdRate);
                                     var euroValue = Convert.ToDecimal(SportModel.EuroRate) / euroRate;
@@ -112,12 +112,7 @@
                             </span>
                         </div>
                     </li>
-                    <li class="menu-item">
-                        <div class="menu-link" style="display: flex; align-items: center;">
-                            <img style="width: 25px; height: 25px;" src="/assets/img/bitcoin.png" alt="BTC Icon">
-                            <span style=" margin-left: 15px;">@SportModel.BtcRate $</span>
-                        </div>
-                    </li>
+                  
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Weather</span>
                     </li>
@@ -157,7 +152,7 @@
                                        style="flex-grow: 1;" />
                                 <button type="button" style="display:none!important;" id="searchButton" class="btn btn-outline-primary">Ara</button>
                                 <a href="/Spor" class="btn btn-outline-secondary" style="display: flex; align-items: center; text-decoration: none; padding: 5px;">
-                                    <img src="https://www.bundle.app/_nuxt/img/flag_tr.c8a2d46.png" alt="TR" style="width: 20px; height: auto; margin-right: 8px;" />
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1200px-Flag_of_Turkey.svg.png" alt="TR" style="width: 20px; height: auto; margin-right: 8px;" />
                                     TR
                                 </a>
 
