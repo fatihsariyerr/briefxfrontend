@@ -14,7 +14,7 @@ namespace pulseui.Services
   {
     private readonly ILogger<SitemapBackgroundService> _logger;
     private readonly IWebHostEnvironment _environment;
-    private readonly string _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+    private readonly string _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.92.157;Port=32542;Database=briefxprod;";
     private readonly string _baseUrl = "https://briefx.app"; // Sitenizin URL'i
     private readonly TimeSpan _updateInterval = TimeSpan.FromMinutes(5); // 5 dakika
 

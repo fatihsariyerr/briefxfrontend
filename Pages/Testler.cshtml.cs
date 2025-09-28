@@ -27,7 +27,7 @@ public class TestlerModel : PageModel
   public async Task<JsonResult> OnGetLoadMoreAsync(int skip, int take = 15)
   {
     var moreNews = new List<Haber>();
-    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.92.157;Port=32542;Database=briefxprod;";
 
     using (var connection = new NpgsqlConnection(_connectionString))
     {
@@ -215,7 +215,7 @@ public class TestlerModel : PageModel
     EuroRate = await GetEuroRateAsync();
 
     Sondakika();
-    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.92.157;Port=32542;Database=briefxprod;";
 
     using (var connection = new NpgsqlConnection(_connectionString))
     {
@@ -279,7 +279,7 @@ public class TestlerModel : PageModel
 
   public void Sondakika()
   {
-    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.43.5;Port=32542;Database=briefxprod;";
+    _connectionString = "User ID=briefxdbuser;Password=Sariyer123.;Server=188.245.92.157;Port=32542;Database=briefxprod;";
 
     using (var connection = new NpgsqlConnection(_connectionString))
     {
