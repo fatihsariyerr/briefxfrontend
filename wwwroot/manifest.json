@@ -1,0 +1,35 @@
+{
+  "name": "Briefx",
+  "short_name": "Briefx",
+  "description": "Briefx Mobile",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/assets/img/briefxlogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/img/briefxlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": [ "productivity", "business" ],
+  "screenshots": [
+    {
+      "src": "/assets/img/briefxlogo.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

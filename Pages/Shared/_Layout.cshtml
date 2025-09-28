@@ -8,6 +8,70 @@
       data-template="vertical-menu-template-free"
       data-style="light">
 <head>
+
+    <!-- PWA Meta Tags (Layout.cshtml'in <head> bölümüne ekleyin) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Briefx">
+
+    <!-- Manifest bağlantısı -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/briefxlogo.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/img/briefxlogo.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/assets/img/briefxlogo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192x192.png">
+
+    <!-- Service Worker kayıt scripti -->
+    <script>if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker kayıtlı:', registration.scope);
+                    })
+                    .catch(registrationError => {
+                        console.log('Service Worker kayıt hatası:', registrationError);
+                    });
+            });
+        }
+
+        // PWA kurulum butonu
+        let deferredPrompt;
+        const addBtn = document.createElement('button');
+        addBtn.innerHTML = '📱 Uygulamayı Yükle';
+        addBtn.style.display = 'none';
+        addBtn.id = 'install-btn';
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            addBtn.style.display = 'block';
+
+            addBtn.addEventListener('click', () => {
+                addBtn.style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('PWA kuruldu');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        // Sayfa yüklendikten sonra butonu ekle
+        window.addEventListener('load', () => {
+            document.body.appendChild(addBtn);
+        });</script>
+
+
+
     <link rel="preload" href="image_url" as="image">
     <meta charset="utf-8" />
     <meta name="viewport"

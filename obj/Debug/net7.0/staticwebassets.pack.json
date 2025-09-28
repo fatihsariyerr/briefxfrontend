@@ -309,12 +309,20 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/manifest.json",
+      "PackagePath": "staticwebassets/manifest.json"
+    },
+    {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/robots.txt",
       "PackagePath": "staticwebassets/robots.txt"
     },
     {
       "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/sitemap.xml",
       "PackagePath": "staticwebassets/sitemap.xml"
+    },
+    {
+      "Id": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/sw.js",
+      "PackagePath": "staticwebassets/sw.js"
     },
     {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.pulseui.props",

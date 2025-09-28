@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6moDsIwfVRG4qFciS8m+2Iv8s4IewEQXV+1KV+bmzOY=",
+  "Hash": "LtPGuihBm+7RHdyiiWYojJo0lo8Bmie4qASt6hyTDpg=",
   "Source": "pulseui",
   "BasePath": "_content/pulseui",
   "Mode": "Default",
@@ -1343,6 +1343,23 @@
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
     },
     {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/manifest.json",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "manifest.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/manifest.json"
+    },
+    {
       "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/robots.txt",
       "SourceId": "pulseui",
       "SourceType": "Discovered",
@@ -1375,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/sitemap.xml"
+    },
+    {
+      "Identity": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/sw.js",
+      "SourceId": "pulseui",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sariyer/Projects/pulseui/pulseui/wwwroot/",
+      "BasePath": "_content/pulseui",
+      "RelativePath": "sw.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/sw.js"
     }
   ]
 }
